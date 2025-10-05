@@ -1,7 +1,10 @@
-import 'package:card_scanner/features/card_validation/presentation/main_app_navigation.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/main_app_navigation.dart';
+import 'package:credit_card_validator/injection_container.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(const MyApp());
 }
 

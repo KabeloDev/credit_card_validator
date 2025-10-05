@@ -1,4 +1,4 @@
-import 'package:card_scanner/features/card_validation/domain/entites/credit_card.dart';
+import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
 
 abstract class CardRepository {
   Future<void> addCard(CreditCard card, List<String> bannedCountries);
