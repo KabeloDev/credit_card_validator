@@ -1,7 +1,7 @@
 import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 
 class UpdateBannedCountries {
-  final CardRepository repository;
+  final Repository repository;
 
   UpdateBannedCountries(this.repository);
 

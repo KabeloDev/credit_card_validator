@@ -5,7 +5,7 @@ import 'package:credit_card_validator/features/card_validation/domain/entities/c
 import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CardRepositoryImpl implements CardRepository {
+class CardRepositoryImpl implements Repository {
   final LocalDataSource localDataSource;
   final SharedPreferences prefs;
 

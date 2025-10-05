@@ -2,7 +2,7 @@ import 'package:credit_card_validator/features/card_validation/domain/entities/c
 import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 
 class GetCards {
-  final CardRepository repository;
+  final Repository repository;
 
   GetCards(this.repository);
 
