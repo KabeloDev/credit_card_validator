@@ -12,10 +12,7 @@ class CardRepositoryImpl implements CardRepository {
   static const _cardsKey = 'cards';
   static const _bannedCountriesKey = 'banned_countries';
 
-  CardRepositoryImpl({
-    required this.localDataSource,
-    required this.prefs,
-  });
+  CardRepositoryImpl({required this.localDataSource, required this.prefs});
 
   @override
   Future<void> addCard(CreditCard card, List<String> bannedCountries) async {
@@ -25,9 +22,13 @@ class CardRepositoryImpl implements CardRepository {
 
     final existingCards = await getCards();
 
-    if (existingCards.any((c) => c.number == card.number)) return;
+    if (existingCards.any((c) => c.number == card.number)) {
+      throw Exception('This card already exists.');
+    }
 
-    final models = existingCards.map((e) => CreditCardModel.fromEntity(e)).toList();
+    final models = existingCards
+        .map((e) => CreditCardModel.fromEntity(e))
+        .toList();
     models.add(CreditCardModel.fromEntity(card));
 
     final jsonList = models.map((m) => json.encode(m.toJson())).toList();
