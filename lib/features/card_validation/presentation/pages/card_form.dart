@@ -1,6 +1,6 @@
-import 'package:credit_card_validator/features/card_validation/presentation/blocs/card_bloc.dart';
-import 'package:credit_card_validator/features/card_validation/presentation/blocs/card_event.dart';
-import 'package:credit_card_validator/features/card_validation/presentation/blocs/card_state.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_bloc.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_event.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/widgets/card_form/add_card_button.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/widgets/card_form/card_text_field.dart';
 import 'package:flutter/material.dart';

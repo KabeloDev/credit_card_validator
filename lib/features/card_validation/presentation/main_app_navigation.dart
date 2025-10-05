@@ -1,3 +1,4 @@
+import 'package:credit_card_validator/features/card_validation/presentation/pages/banned_countries.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/pages/card_form.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/pages/card_list.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [CardForm(), CardList()];
+  final List<Widget> _screens = const [CardForm(), CardList(), BannedCountries()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -38,6 +39,10 @@ class _MainNavigationState extends State<MainNavigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: 'Card List',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.block),
+            label: 'Banned Countries',
           ),
         ],
       ),

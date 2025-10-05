@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:credit_card_validator/core/constants/banned_countries.dart';
 import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
 import 'package:credit_card_validator/features/card_validation/domain/repositories/card_repository.dart';
-import 'package:credit_card_validator/features/card_validation/presentation/blocs/card_event.dart';
-import 'package:credit_card_validator/features/card_validation/presentation/blocs/card_state.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_event.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 
 class CardBloc extends Bloc<CardEvent, CardState> {
   final CardRepository repository;
@@ -28,6 +27,8 @@ class CardBloc extends Bloc<CardEvent, CardState> {
           issuingCountry: event.issuingCountry,
           cardType: event.cardType,
         );
+
+        final bannedCountries = await repository.getBannedCountries();
 
         await repository.addCard(card, bannedCountries); 
         final updatedCards = await repository.getCards();
