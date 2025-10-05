@@ -26,8 +26,23 @@ class BannedCountryList extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
+              if (editController.text.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Please enter a country'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+                return;
+              }
               onEdit(index, editController.text);
               Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Country updated successfully!'),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
             },
             child: const Text('Save'),
           ),
@@ -54,7 +69,15 @@ class BannedCountryList extends StatelessWidget {
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () => onDelete(index),
+                  onPressed: () {
+                    onDelete(index);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Country deleted successfully!'),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

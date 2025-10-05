@@ -31,12 +31,14 @@ class _CardFormPageState extends State<CardForm> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      BlocProvider.of<CardBloc>(context).add(AddCard(
-        number: _numberController.text,
-        cvv: _cvvController.text,
-        issuingCountry: _countryController.text,
-        cardType: _typeController.text,
-      ));
+      BlocProvider.of<CardBloc>(context).add(
+        AddCard(
+          number: _numberController.text,
+          cvv: _cvvController.text,
+          issuingCountry: _countryController.text,
+          cardType: _typeController.text,
+        ),
+      );
 
       _formKey.currentState!.reset();
     }
@@ -52,7 +54,19 @@ class _CardFormPageState extends State<CardForm> {
           listener: (context, state) {
             if (state is CardError) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.message)),
+                SnackBar(
+                  content: Text(state.message),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
+            }
+
+            if (state is CardLoaded) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Card added successfully!'),
+                  behavior: SnackBarBehavior.floating,
+                ),
               );
             }
           },
@@ -60,9 +74,15 @@ class _CardFormPageState extends State<CardForm> {
             key: _formKey,
             child: Column(
               children: [
-                CardTextField(controller: _numberController, label: 'Card Number'),
+                CardTextField(
+                  controller: _numberController,
+                  label: 'Card Number',
+                ),
                 CardTextField(controller: _cvvController, label: 'CVV'),
-                CardTextField(controller: _countryController, label: 'Issuing Country'),
+                CardTextField(
+                  controller: _countryController,
+                  label: 'Issuing Country',
+                ),
                 CardTextField(controller: _typeController, label: 'Card Type'),
                 const SizedBox(height: 20),
                 AddCardButton(onPressed: _submit),

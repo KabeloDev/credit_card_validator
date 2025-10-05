@@ -19,8 +19,23 @@ class _AddCountryFieldState extends State<AddCountryField> {
   }
 
   void _submit() {
+    if (_controller.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a country'),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
     widget.onAdd(_controller.text);
     _controller.clear();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Country added successfully!'),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
   }
 
   @override
