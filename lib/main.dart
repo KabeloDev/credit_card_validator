@@ -1,4 +1,4 @@
-import 'package:card_scanner/screens/card_validation.dart';
+import 'package:card_scanner/features/card_validation/presentation/pages/card_form.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const CardValidation(),
+      home: const CardForm(),
     );
   }
 }
