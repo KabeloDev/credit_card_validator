@@ -31,25 +31,28 @@ class _BannedCountriesPageState extends State<BannedCountries> {
           }
           if (state is BannedCountriesLoaded) {
             final countries = state.countries;
-            return Column(
-              children: [
-                AddCountryField(
-                  onAdd: (country) => context.read<BannedCountriesBloc>().add(
-                    AddBannedCountry(country),
-                  ),
-                ),
-                Expanded(
-                  child: BannedCountryList(
-                    countries: countries,
-                    onEdit: (i, country) => context
-                        .read<BannedCountriesBloc>()
-                        .add(EditBannedCountry(i, country)),
-                    onDelete: (i) => context.read<BannedCountriesBloc>().add(
-                      DeleteBannedCountry(i),
+            return Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  AddCountryField(
+                    onAdd: (country) => context.read<BannedCountriesBloc>().add(
+                      AddBannedCountry(country),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: BannedCountryList(
+                      countries: countries,
+                      onEdit: (i, country) => context
+                          .read<BannedCountriesBloc>()
+                          .add(EditBannedCountry(i, country)),
+                      onDelete: (i) => context.read<BannedCountriesBloc>().add(
+                        DeleteBannedCountry(i),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             );
           }
           return const SizedBox();
