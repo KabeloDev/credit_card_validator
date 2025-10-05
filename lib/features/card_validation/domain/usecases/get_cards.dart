@@ -1,5 +1,5 @@
 import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
-import 'package:credit_card_validator/features/card_validation/domain/repositories/card_repository.dart';
+import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 
 class GetCards {
   final CardRepository repository;

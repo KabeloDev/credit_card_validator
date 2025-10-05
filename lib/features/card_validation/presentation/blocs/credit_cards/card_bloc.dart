@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
-import 'package:credit_card_validator/features/card_validation/domain/repositories/card_repository.dart';
+import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_event.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 

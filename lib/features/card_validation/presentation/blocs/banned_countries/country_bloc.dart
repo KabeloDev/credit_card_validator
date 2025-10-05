@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:credit_card_validator/features/card_validation/domain/repositories/card_repository.dart';
+import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/banned_countries/country_event.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/banned_countries/country_state.dart';
 
