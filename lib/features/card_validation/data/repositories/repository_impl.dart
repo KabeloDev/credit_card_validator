@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:credit_card_validator/features/card_validation/data/datasources/local_data_source.dart';
 import 'package:credit_card_validator/features/card_validation/data/models/credit_card_model.dart';
 import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
-import 'package:credit_card_validator/features/card_validation/domain/repositories/card_repository.dart';
+import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CardRepositoryImpl implements CardRepository {
