@@ -4,7 +4,7 @@ import 'package:credit_card_validator/features/card_validation/presentation/bloc
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/banned_countries/country_state.dart';
 
 class BannedCountriesBloc extends Bloc<BannedCountryEvent, BannedCountriesState> {
-  final CardRepository repository;
+  final Repository repository;
   BannedCountriesBloc({required this.repository}) : super(BannedCountriesLoading()) {
     on<LoadBannedCountries>((event, emit) async {
       final list = await repository.getBannedCountries();

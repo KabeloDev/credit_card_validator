@@ -1,7 +1,7 @@
 import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
 
 class ScanCard {
-  final CardRepository repository;
+  final Repository repository;
 
   ScanCard(this.repository);
 

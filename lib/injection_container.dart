@@ -17,7 +17,7 @@ Future<void> init() async {
     () => LocalDataSourceImpl(sl()),
   );
 
-  sl.registerLazySingleton<CardRepository>(
+  sl.registerLazySingleton<Repository>(
     () => CardRepositoryImpl(localDataSource: sl(), prefs: sl()),
   );
 

@@ -5,7 +5,7 @@ import 'package:credit_card_validator/features/card_validation/presentation/bloc
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 
 class CardBloc extends Bloc<CardEvent, CardState> {
-  final CardRepository repository;
+  final Repository repository;
 
   CardBloc({required this.repository}) : super(CardInitial()) {
     on<LoadCards>((event, emit) async {
