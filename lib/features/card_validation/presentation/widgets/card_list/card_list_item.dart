@@ -11,7 +11,7 @@ class CardListItem extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListTile(
-        title: Text('**** **** **** ${card.number.substring(card.number.length - 4)}'),
+        title: Text(card.number),
         subtitle: Text('${card.cardType} - ${card.issuingCountry}'),
         trailing: Text('CVV: ${card.cvv}'),
       ),

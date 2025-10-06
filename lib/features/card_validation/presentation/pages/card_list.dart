@@ -26,7 +26,7 @@ class CardList extends StatelessWidget {
               itemCount: state.cards.length,
               itemBuilder: (context, index) {
                 final card = state.cards[index];
-                return CardListItem(card: card);
+                return SingleChildScrollView(child: CardListItem(card: card));
               },
             );
           } else if (state is CardError) {

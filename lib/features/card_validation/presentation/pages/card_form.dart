@@ -63,69 +63,71 @@ class _CardFormPageState extends State<CardForm> {
       appBar: AppBar(title: const Text('Validate Credit Card')),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: BlocListener<CardBloc, CardState>(
-          listener: (context, state) {
-            if (state is CardError) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.message),
-                  behavior: SnackBarBehavior.floating,
-                ),
-              );
-            }
-
-            if (state is CardLoaded) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Card added successfully!'),
-                  behavior: SnackBarBehavior.floating,
-                ),
-              );
-            }
-
-            if (state is CardScanned) {
-              _numberController.text = state.cardNumber;
-              _updateCardType(); 
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Card scanned successfully!'),
-                  behavior: SnackBarBehavior.floating,
-                ),
-              );
-            }
-          },
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                CardTextField(
-                  controller: _numberController,
-                  label: 'Card Number',
-                  keyboardType: TextInputType.number,
-                ),
-                CardTextField(
-                  controller: _cvvController,
-                  label: 'CVV',
-                  keyboardType: TextInputType.number,
-                ),
-                CardTextField(
-                  controller: _countryController,
-                  label: 'Issuing Country',
-                  keyboardType: TextInputType.text,
-                ),
-                CardTextField(
-                  controller: _typeController,
-                  label: 'Card Type',
-                  keyboardType: TextInputType.text,
-                ),
-                const SizedBox(height: 20),
-                AddCardButton(onPressed: _submit),
-                ScanCardButton(
-                  onPressed: () {
-                    BlocProvider.of<CardBloc>(context).add(ScanCardRequested());
-                  },
-                ),
-              ],
+        child: SingleChildScrollView(
+          child: BlocListener<CardBloc, CardState>(
+            listener: (context, state) {
+              if (state is CardError) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.message),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              }
+          
+              if (state is CardLoaded) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Card added successfully!'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              }
+          
+              if (state is CardScanned) {
+                _numberController.text = state.cardNumber;
+                _updateCardType(); 
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Card scanned successfully!'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              }
+            },
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  CardTextField(
+                    controller: _numberController,
+                    label: 'Card Number',
+                    keyboardType: TextInputType.number,
+                  ),
+                  CardTextField(
+                    controller: _cvvController,
+                    label: 'CVV',
+                    keyboardType: TextInputType.number,
+                  ),
+                  CardTextField(
+                    controller: _countryController,
+                    label: 'Issuing Country',
+                    keyboardType: TextInputType.text,
+                  ),
+                  CardTextField(
+                    controller: _typeController,
+                    label: 'Card Type',
+                    keyboardType: TextInputType.text,
+                  ),
+                  const SizedBox(height: 20),
+                  AddCardButton(onPressed: _submit),
+                  ScanCardButton(
+                    onPressed: () {
+                      BlocProvider.of<CardBloc>(context).add(ScanCardRequested());
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
