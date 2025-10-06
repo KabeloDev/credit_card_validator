@@ -23,7 +23,7 @@ class _BannedCountriesPageState extends State<BannedCountries> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Manage Banned Countries')),
+      appBar: AppBar(title: const Text('Banned Countries')),
       body: BlocBuilder<BannedCountriesBloc, BannedCountriesState>(
         builder: (context, state) {
           if (state is BannedCountriesLoading) {

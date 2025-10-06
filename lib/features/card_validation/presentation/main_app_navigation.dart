@@ -33,7 +33,7 @@ class _MainNavigationState extends State<MainNavigation> {
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(Icons.credit_card),
             label: 'Card Form',
           ),
           BottomNavigationBarItem(
@@ -42,7 +42,7 @@ class _MainNavigationState extends State<MainNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.block),
-            label: 'Banned Countries',
+            label: 'Countries',
           ),
         ],
       ),

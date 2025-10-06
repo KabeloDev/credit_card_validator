@@ -1,13 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_validator/features/card_validation/domain/entities/credit_card.dart';
 import 'package:credit_card_validator/features/card_validation/domain/repositories/repository.dart';
+import 'package:credit_card_validator/features/card_validation/domain/usecases/scan_card.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_event.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 
 class CardBloc extends Bloc<CardEvent, CardState> {
   final Repository repository;
+  final ScanCard scanCard;
 
-  CardBloc({required this.repository}) : super(CardInitial()) {
+  CardBloc({required this.repository, required this.scanCard})
+    : super(CardInitial()) {
     on<LoadCards>((event, emit) async {
       emit(CardLoading());
       try {
@@ -30,11 +33,25 @@ class CardBloc extends Bloc<CardEvent, CardState> {
 
         final bannedCountries = await repository.getBannedCountries();
 
-        await repository.addCard(card, bannedCountries); 
+        await repository.addCard(card, bannedCountries);
         final updatedCards = await repository.getCards();
         emit(CardLoaded(updatedCards));
       } catch (e) {
         emit(CardError(e.toString()));
+      }
+    });
+
+    on<ScanCardRequested>((event, emit) async {
+      emit(CardLoading());
+      try {
+        final result = await scanCard();
+        if (result != null && result.isNotEmpty) {
+          emit(CardScanned(result));
+        } else {
+          emit(CardError('Failed to scan card.'));
+        }
+      } catch (e) {
+        emit(CardError('Error scanning card: $e'));
       }
     });
   }

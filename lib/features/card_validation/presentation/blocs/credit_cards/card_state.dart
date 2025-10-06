@@ -12,3 +12,8 @@ class CardError extends CardState {
   final String message;
   CardError(this.message);
 }
+class CardScanned extends CardState {
+  final String cardNumber;
+  CardScanned(this.cardNumber);
+}
+
