@@ -44,15 +44,15 @@
 
 <h3>Card Form</h3>
 <p>Submit credit card details using the form. The card type is automatically inferred as you type.</p>
-<img src="https://i.imgur.com/BRuWMqC.png" alt="Card Form Screenshot" width="1000" height="1000">
+<img src="https://i.imgur.com/BRuWMqC.png" alt="Card Form Screenshot" height="500%" width="100%">
 
 <h3>Card List</h3>
 <p>View all stored cards in a scrollable list. Duplicate cards and cards from banned countries are prevented.</p>
-<img src="https://i.imgur.com/s2IenlK.png" alt="Card List Screenshot" width="1000" height="1000">
+<img src="https://i.imgur.com/s2IenlK.png" alt="Card List Screenshot" height="500%" width="100%">
 
 <h3>Banned Countries</h3>
 <p>Manage the list of banned countries. Cards from these countries cannot be added. Users can add, edit, or remove countries.</p>
-<img src="https://i.imgur.com/KaaG0nI.png" alt="Banned Countries Screenshot" width="1000" height="1000">
+<img src="https://i.imgur.com/KaaG0nI.png" alt="Banned Countries Screenshot" >
 
 
 <hr>
