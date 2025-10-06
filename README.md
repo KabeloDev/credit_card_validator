@@ -52,7 +52,7 @@
 
 <h3>Banned Countries</h3>
 <p>Manage the list of banned countries. Cards from these countries cannot be added. Users can add, edit, or remove countries.</p>
-<img src="https://i.imgur.com/KaaG0nI.png" alt="Banned Countries Screenshot" >
+<img src="https://i.imgur.com/KaaG0nI.png" alt="Banned Countries Screenshot" height="500%" width="100%">
 
 
 <hr>
