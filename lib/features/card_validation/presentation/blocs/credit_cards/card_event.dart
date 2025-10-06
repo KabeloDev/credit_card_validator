@@ -16,3 +16,6 @@ class AddCard extends CardEvent {
   });
 }
 
+class ScanCardRequested extends CardEvent {}
+
+

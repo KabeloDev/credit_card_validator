@@ -4,6 +4,7 @@ import 'package:credit_card_validator/features/card_validation/presentation/bloc
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/widgets/card_form/add_card_button.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/widgets/card_form/card_text_field.dart';
+import 'package:credit_card_validator/features/card_validation/presentation/widgets/card_form/scan_card_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -81,6 +82,17 @@ class _CardFormPageState extends State<CardForm> {
                 ),
               );
             }
+
+            if (state is CardScanned) {
+              _numberController.text = state.cardNumber;
+              _updateCardType(); 
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Card scanned successfully!'),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
+            }
           },
           child: Form(
             key: _formKey,
@@ -108,6 +120,11 @@ class _CardFormPageState extends State<CardForm> {
                 ),
                 const SizedBox(height: 20),
                 AddCardButton(onPressed: _submit),
+                ScanCardButton(
+                  onPressed: () {
+                    BlocProvider.of<CardBloc>(context).add(ScanCardRequested());
+                  },
+                ),
               ],
             ),
           ),
