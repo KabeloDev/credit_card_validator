@@ -30,7 +30,6 @@
   <li>Install dependencies:
     <pre><code>flutter pub get</code></pre>
   </li>
-  <br/>
   <li>Connect an Android device or start an Android emulator.</li>
   <br/>
   <li>Run the app:
