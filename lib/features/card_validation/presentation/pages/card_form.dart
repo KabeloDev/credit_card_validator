@@ -47,7 +47,7 @@ class _CardFormPageState extends State<CardForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add Credit Card')),
+      appBar: AppBar(title: const Text('Validate Credit Card')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: BlocListener<CardBloc, CardState>(
@@ -77,13 +77,23 @@ class _CardFormPageState extends State<CardForm> {
                 CardTextField(
                   controller: _numberController,
                   label: 'Card Number',
+                  keyboardType: TextInputType.number,
                 ),
-                CardTextField(controller: _cvvController, label: 'CVV'),
+                CardTextField(
+                  controller: _cvvController,
+                  label: 'CVV',
+                  keyboardType: TextInputType.number,
+                ),
                 CardTextField(
                   controller: _countryController,
                   label: 'Issuing Country',
+                  keyboardType: TextInputType.text,
                 ),
-                CardTextField(controller: _typeController, label: 'Card Type'),
+                CardTextField(
+                  controller: _typeController,
+                  label: 'Card Type',
+                  keyboardType: TextInputType.text,
+                ),
                 const SizedBox(height: 20),
                 AddCardButton(onPressed: _submit),
               ],
