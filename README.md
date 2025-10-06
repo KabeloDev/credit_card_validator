@@ -1,6 +1,8 @@
 <h1 align="center">Credit Card Validator App</h1>
 
-<p><strong>Credit Card Validator</strong> is a Flutter app with a minimal design focused on functionality, allowing users to add, scan, and validate credit cards while checking against banned countries.</p>
+<h2>Description</h2>
+
+<p>Flutter app with a minimal design focused on functionality, allowing users to add, scan, and validate credit cards.</p>
 
 <hr>
 
