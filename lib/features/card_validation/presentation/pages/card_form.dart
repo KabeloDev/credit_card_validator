@@ -1,3 +1,4 @@
+import 'package:credit_card_validator/core/utils/card_type_util.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_bloc.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_event.dart';
 import 'package:credit_card_validator/features/card_validation/presentation/blocs/credit_cards/card_state.dart';
@@ -19,6 +20,17 @@ class _CardFormPageState extends State<CardForm> {
   final _cvvController = TextEditingController();
   final _countryController = TextEditingController();
   final _typeController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _numberController.addListener(_updateCardType);
+  }
+
+  void _updateCardType() {
+    final type = inferCardType(_numberController.text);
+    _typeController.text = type;
+  }
 
   @override
   void dispose() {
